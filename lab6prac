@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#exit if argument is not provided
+if [ -z $1 ]
+    then
+        echo service is required 
+        exit 9
+fi
+
+#install the argument provided
+sudo yum install $1 -y
+sudo systemctl start ${1}.service

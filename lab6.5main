@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. sourcefile/color
+
+echo the color is $COLOR

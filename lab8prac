@@ -1,0 +1,25 @@
+#!/bin/bash
+
+RAMFREE=$(free -m | grep Mem | awk '{ print $4 }')
+DISKFREE=$(df -m | grep /dev/mapper/rl-root | awk '{ print $4 }')
+
+echo Your free RAM is $RAMFREE
+echo Your free disk space is $DISKFREE
+
+#check if free RAM & disk is adequate
+if [ $RAMFREE -le 512 ] && [ $DISKFREE -le 40000 ]
+then
+    echo WARNING:low system resource
+
+#check if free disk space is adequate
+elif [ $DISKFREE -le 40000 ]
+then
+    echo WARNING:low disk space available
+
+#check if free disk space is adequate
+elif [ $RAMFREE -le 512 ]
+then
+    echo WARNING: low memory available
+else
+    echo all is good
+fi

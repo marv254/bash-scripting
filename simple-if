@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if grep james /etc/passwd >>/dev/null 
+then
+    echo command executed successfully
+else
+    echo "nigga does'nt exist"
+fi
